@@ -1,0 +1,9 @@
+﻿//enable-migrations -ContextTypeName Vattenfall_IT_test.Models.ApplicationDbContext -MigrationsDirectory UserMigration
+enable-migrations -ContextTypeName Vattenfall_IT_test.DataContext -MigrationsDirectory DataMigration
+
+
+//add-migration -ConfigurationTypeName Vattenfall_IT_test.UserMigration.Configuration Initial
+add-migration -ConfigurationTypeName Vattenfall_IT_test.DataMigration.Configuration Initial
+
+//update-database -ConfigurationTypeName Vattenfall_IT_test.UserMigration.Configuration
+update-database -ConfigurationTypeName Vattenfall_IT_test.DataMigration.Configuration

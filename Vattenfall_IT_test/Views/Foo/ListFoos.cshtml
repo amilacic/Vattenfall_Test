@@ -1,0 +1,69 @@
+﻿
+<h2>{{PageTitle}}</h2>
+<div ng-init="GetFooList()">
+   
+    <br />
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-responsive">
+                <tbody>
+                    <tr>
+                        <th>
+                            Name
+                        </th>
+                        <th>
+                            Surename
+                        </th>
+                        <th>
+                            Age
+                        </th>
+                     
+                        <th>
+                            Modified
+                        </th>
+                        <th>
+                            Created
+                        </th>
+                        <th>
+                            <a href="#/ManageFoo" class="btn btn-sm btn-success"><i class="glyphicon glyphicon-plus-sign"></i></a>
+                        </th>
+                    </tr>
+
+                </tbody>
+                <tbody>
+                    <tr ng-if="FooList == null || FooList.length == 0">
+                        <td colspan="7" style="text-align:center">
+                            No Foo's created yet
+                        </td>
+                    </tr>
+                    
+                    <tr ng-repeat="f in FooList track by $index ">
+                        <td>
+                            {{f.Name}}
+                        </td>
+                        <td>
+                            {{f.Surename}}
+                        </td>
+                        <td>
+                            {{f.Age}}
+                        </td>
+                        <td>
+                            {{convertCSDate(f.Modified)}}
+                        </td>
+                        <td>
+                            {{convertCSDate(f.Created)}}
+                        </td>
+                        <td>
+                            <a href="#/ManageFoo/{{f.Id}}" class="btn btn-sm btn-default">
+                                <i class="glyphicon glyphicon-edit"></i>
+                            </a>
+                            <a ng-click="DeleteFoo(f)" class="btn btn-sm btn-default">
+                                <i class="glyphicon glyphicon-remove"></i>
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
